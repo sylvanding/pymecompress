@@ -65,6 +65,11 @@ scripts/
 ├── 02_test_lossless.py      # 执行无损压缩基准测试
 ├── 03_test_quantization.py  # 执行量化压缩测试（模拟数据 + 真实数据）
 └── 04_plot_report.py        # 读取测试结果，绘制图表并生成报告
+
+results/
+├── 02/
+├── 03/
+└── 04/
 ```
 
 ### 详细脚本功能：

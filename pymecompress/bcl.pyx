@@ -80,8 +80,8 @@ def huffman_compress_quant_buffer(data, float offset, float scale):
     cdef unsigned char [:] qv = quant
     
     with nogil:
-        quantize_u16(<uint16_t *>buffer.buf, &qv[0], dsize, offset, scale)
-        nb = Huffman_Compress(&qv[0], &ov[0], dsize)
+        quantize_u16(<uint16_t *>buffer.buf, &qv[0], orig_size, offset, scale)
+        nb = Huffman_Compress(&qv[0], &ov[0], orig_size)
         
     PyBuffer_Release(&buffer)
     # store length in last 4 bytes

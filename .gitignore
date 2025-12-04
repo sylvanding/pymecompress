@@ -97,4 +97,3 @@ pymecompress/quantize.dispatch.avx.c
 pymecompress/quantize.dispatch.h
 
 test_data/
-results/

@@ -61,7 +61,7 @@ if __name__ == "__main__":
     
     # 2. Simulated microscopy stack
     print("Generating microscopy stack (uint16)...")
-    stack = generate_simulated_microscopy(shape=(512, 512), n_frames=20)
+    stack = generate_simulated_microscopy(shape=(256, 256), n_frames=2000)
     np.save(f"{OUTPUT_DIR}/microscopy_stack.npy", stack)
     
     print(f"Data generated in {OUTPUT_DIR}")

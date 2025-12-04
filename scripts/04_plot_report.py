@@ -3,10 +3,10 @@ import numpy as np
 import csv
 import os
 
-LOSSLESS_CSV = "scripts/results_lossless.csv"
-QUANT_CSV = "scripts/results_quantization.csv"
-VIS_ORIG = "scripts/vis_original.npy"
-VIS_DECOMP = "scripts/vis_decompressed.npy"
+LOSSLESS_CSV = "results/02/results_lossless.csv"
+QUANT_CSV = "results/03/results_quantization.csv"
+VIS_ORIG = "results/03/vis_original.npy"
+VIS_DECOMP = "results/03/vis_decompressed.npy"
 
 def read_csv(filepath):
     data = []
@@ -44,7 +44,7 @@ def plot_lossless_performance(data):
     plt.bar(list(ratios.keys()), list(ratios.values()))
     plt.title("Lossless Compression Ratio by Dataset")
     plt.ylabel("Compression Ratio")
-    plt.savefig("scripts/performance_lossless_ratio.png")
+    plt.savefig("results/04/performance_lossless_ratio.png")
     plt.close()
     
     # Speed comparison
@@ -78,7 +78,7 @@ def plot_lossless_performance(data):
     ax.set_xticklabels(labels)
     ax.legend()
     
-    plt.savefig("scripts/performance_lossless_speed.png")
+    plt.savefig("results/04/performance_lossless_speed.png")
     plt.close()
 
 def plot_quantization_tradeoff(data):
@@ -114,7 +114,7 @@ def plot_quantization_tradeoff(data):
     
     plt.title(f"Quantization Trade-off ({target_dataset})")
     plt.grid(True, alpha=0.3)
-    plt.savefig("scripts/quantization_tradeoff.png")
+    plt.savefig("results/04/quantization_tradeoff.png")
     plt.close()
 
 def plot_error_analysis():
@@ -154,7 +154,7 @@ def plot_error_analysis():
     plt.ylabel("Count (Log)")
     
     plt.tight_layout()
-    plt.savefig("scripts/error_analysis.png")
+    plt.savefig("results/04/error_analysis.png")
     plt.close()
     
     # Scatter plot: Signal vs Error
@@ -172,7 +172,7 @@ def plot_error_analysis():
     plt.ylabel("Quantization Error")
     plt.title("Signal Dependent Error Analysis")
     plt.axhline(0, color='r', linestyle='--', linewidth=0.5)
-    plt.savefig("scripts/signal_vs_error.png")
+    plt.savefig("results/04/signal_vs_error.png")
     plt.close()
 
 if __name__ == "__main__":
@@ -184,4 +184,4 @@ if __name__ == "__main__":
     plot_quantization_tradeoff(quant_data)
     
     plot_error_analysis()
-    print("Plots generated in scripts/")
+    print("Plots generated in results/04/")

@@ -42,7 +42,7 @@ class HuffmanQuant16(Codec):
         if out is None:
             out = ret
         else:
-           out[:] = ret
+           out[:] = ret.reshape(out.shape)
         
         return out.astype('uint16')
     

@@ -135,11 +135,13 @@ void quantize_u16_avx(uint16_t * data, uint8_t * out, int size, float offset, fl
 
 void quantize_u16(uint16_t *data, uint8_t * out, int size, float offset, float scale)
 {
+#ifdef __AVX__
     if (__builtin_cpu_supports("avx"))
     {
         printf("Using AVX optimsed code\n");
         quantize_u16_avx(data, out, size, offset, scale);
     }else
+#endif
     {
         quantize_u16_noavx(data, out, size, offset, scale);
     }

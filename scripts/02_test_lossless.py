@@ -7,7 +7,7 @@ from benchmark_utils import TimerObj
 
 # Ensure simulated data exists
 SIM_DATA_DIR = "test_data/simulated"
-RESULTS_FILE = "scripts/results_lossless.csv"
+RESULTS_FILE = "results/02/results_lossless.csv"
 
 def run_tests():
     files = [f for f in os.listdir(SIM_DATA_DIR) if f.startswith("uint8_") and f.endswith(".npy")]
@@ -35,6 +35,7 @@ def run_tests():
         
         with TimerObj() as t_decomp:
             decompressed = pymecompress.HuffmanDecompress(compressed, orig_size)
+            decompressed = decompressed.reshape(data.shape)
         decomp_time = t_decomp.interval
         
         # Verify correctness
